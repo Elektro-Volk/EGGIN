@@ -6,8 +6,9 @@ SOURCES=	\
 	src/host.cpp \
 	src/console.cpp \
 	src/render/render.cpp \
-	src/render/Camera.cpp
+	src/render/Camera.cpp \
 	src/scenes.cpp \
+	src/input.cpp
 OBJECTS=$(SOURCES:.cpp=.o)
 EXECUTABLE=EGGIN
 
