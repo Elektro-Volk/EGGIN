@@ -23,6 +23,7 @@ void Camera::frame()
 {
   float rad = 57.2957;
 
-  vec3 P, R = getGlobalPosition(), getGlobalRotation();
+  vec3 P = getGlobalPosition();
+  vec3 R = getGlobalRotation();
 	gluLookAt(P.x, P.y, P.z, P.x - sin(R.y / rad), P.y + tan(R.x / rad), P.z + cos(R.y / rad), 0, 1, 0);
 }
