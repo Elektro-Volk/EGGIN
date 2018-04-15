@@ -13,7 +13,7 @@ GNU General Public License for more details.
 #pragma once
 #include "objects/GameObject.hpp"
 
-class Camera : GameObject {
+class Camera : public GameObject {
   public:
     void frame();
 };
