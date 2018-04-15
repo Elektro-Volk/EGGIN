@@ -12,7 +12,9 @@ GNU General Public License for more details.
 */
 #include "render.h"
 #include "console.h"
-#include <iostream>
+#include "imgui/imgui.h"
+#include "imgui/togl.h"
+
 
 render::Window *render::win;
 Camera *render::cam;
@@ -48,8 +50,8 @@ void render::start()
   win = new Window("EGGIN", 800, 600);
 
   // Setup ImGui binding
-  //ImGui_ImplSdlGL2_Init(window);
-  //ImGui::StyleColorsClassic();
+  ImGui_ImplSdlGL2_Init(win->sdlwin);
+  ImGui::StyleColorsClassic();
 }
 
 /*
@@ -60,10 +62,10 @@ Clear frame
 */
 void render::frame()
 {
-  //ImGui_ImplSdlGL2_NewFrame(window);
+  ImGui_ImplSdlGL2_NewFrame(win->sdlwin);
   //ImGui::SetNextWindowPos(ImVec2(650, 20), ImGuiCond_FirstUseEver);
-	//glClearColor(rand()%255/255.f, rand()%255/255.f, rand()%255/255.f, 0.0f); // устанавливаем фоновый цвет на черный
-	glClearDepth(1.0);
+
+  glClearDepth(1.0);
 	glDepthFunc(GL_LESS);
 	glEnable(GL_DEPTH_TEST); // включаем тест глубины
 	glShadeModel(GL_SMOOTH);
@@ -84,9 +86,9 @@ Draw frame
 */
 void render::drawFrame()
 {
-  //glViewport(0, 0, (int)ImGui::GetIO().DisplaySize.x, (int)ImGui::GetIO().DisplaySize.y);
+  glViewport(0, 0, (int)ImGui::GetIO().DisplaySize.x, (int)ImGui::GetIO().DisplaySize.y);
   //glClear(GL_COLOR_BUFFER_BIT);
-  //ImGui::Render();
+  ImGui::Render();
   SDL_GL_SwapWindow(win->sdlwin);
 }
 

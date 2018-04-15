@@ -7,6 +7,9 @@ SOURCES=	\
 	src/console.cpp \
 	src/render/render.cpp \
 	src/render/Camera.cpp \
+	src/render/imgui/imgui.cpp \
+	src/render/imgui/imgui_draw.cpp \
+	src/render/imgui/togl.cpp \
 	src/scenes.cpp \
 	src/input.cpp
 OBJECTS=$(SOURCES:.cpp=.o)
