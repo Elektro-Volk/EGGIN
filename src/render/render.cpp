@@ -69,7 +69,7 @@ void render::frame()
 	glShadeModel(GL_SMOOTH);
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-	gluPerspective(80.0f, (float) 1280 / (float) 720, 0.1f, 100.0f); // настраиваем трехмерную перспективу
+	gluPerspective(70.0f, (float) win->width / (float) win->height, 0.1f, 100.0f); // настраиваем трехмерную перспективу
 	glMatrixMode(GL_MODELVIEW); // переходим в трехмерный режим
   glLoadIdentity();
   if (cam) cam->frame();
