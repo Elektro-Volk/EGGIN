@@ -4,7 +4,8 @@ LDFLAGS=
 INCLUDES=
 SOURCES=	\
 	src/host.cpp \
-	src/console.cpp
+	src/console.cpp \
+	src/render/render.cpp
 OBJECTS=$(SOURCES:.cpp=.o)
 EXECUTABLE=EGGIN
 
