@@ -11,8 +11,9 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 */
 #pragma once
-
+extern "C" {
   extern bool initEngine(void);
   extern bool startEngine(void);
   extern bool frame(void);
   extern void postFrame(void);
+}

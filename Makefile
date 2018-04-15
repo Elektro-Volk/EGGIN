@@ -1,6 +1,6 @@
 CC=g++ -g
 CFLAGS=-std=c++11 -c
-LDFLAGS= -lSDL2 -lGL -pthread -ldl -lGLU -lglut
+LDFLAGS=
 INCLUDES=
 SOURCES=	\
 	src/host.cpp \

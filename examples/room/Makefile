@@ -1,6 +1,6 @@
 CC=g++ -g
-CFLAGS=-std=c++11 -fPIC
-LDFLAGS=-L../../ -lEGGIN -ldl
+CFLAGS=-std=c++11 -fPIC -c
+LDFLAGS=-ldl -L../../ -lEGGIN -lSDL2 -lGL -pthread -ldl -lGLU -lglut
 INCLUDES=-I../../src
 SOURCES=	\
 	main.cpp
@@ -10,7 +10,7 @@ EXECUTABLE=GAME
 all: $(SOURCES) $(EXECUTABLE)
 
 $(EXECUTABLE): $(OBJECTS)
-	$(CC) $(OBJECTS)  $(LDFLAGS) -o $(EXECUTABLE)
+	$(CC) $(OBJECTS) $(LDFLAGS) -o $(EXECUTABLE)
 
 .cpp.o:
 	$(CC) $(CFLAGS) $(INCLUDES) $< -o $@
