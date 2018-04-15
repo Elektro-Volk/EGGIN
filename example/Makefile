@@ -1,7 +1,7 @@
 CC=g++ -g
 CFLAGS=-std=c++11 -fPIC -c
-LDFLAGS=-ldl -L../../ -lEGGIN -lSDL2 -lGL -pthread -ldl -lGLU -lglut
-INCLUDES=-I../../src
+LDFLAGS=-ldl -L../ -lEGGIN -lSDL2 -lGL -pthread -ldl -lGLU -lglut
+INCLUDES=-I../src
 SOURCES=	\
 	main.cpp
 OBJECTS=$(SOURCES:.cpp=.o)
