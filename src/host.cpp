@@ -14,6 +14,7 @@ GNU General Public License for more details.
 #include "common.h"
 #include "console.h"
 #include "render/render.h"
+#include "scenes.h"
 #include "SDL2/SDL.h"
 
 const string _version = "0.0.1";
@@ -67,6 +68,7 @@ bool frame(void)
 
 	//input::frame();
 	render::frame();
+  scenesFrame();
   return true;
 }
 
