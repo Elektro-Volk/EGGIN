@@ -1,5 +1,5 @@
 /*
-render.h - engine render
+Camera.h - render camera
 Copyright (C) 2018 Elektro-Volk
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -11,28 +11,9 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 */
 #pragma once
-#include "common.h"
-#include "Camera.h"
-#include "SDL2/SDL.h"
-#include "GL/gl.h"
-#include <GL/glu.h>
+#include "objects/GameObject.hpp"
 
-namespace render {
-  class Window {
+class Camera : GameObject {
   public:
-    int width, height;
-    SDL_Window *sdlwin;
-    SDL_GLContext context;
-
-    Window (char *name, int w, int h);
-    ~Window();
-  };
-
-  extern Window *win;
-  extern Camera *cam;
-
-  void init();
-  void start();
-  void frame();
-  void drawFrame();
-}
+    void frame();
+};

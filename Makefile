@@ -1,11 +1,12 @@
 CC=g++ -g
 CFLAGS=-std=c++11 -c
 LDFLAGS=
-INCLUDES=
+INCLUDES=-I./src
 SOURCES=	\
 	src/host.cpp \
 	src/console.cpp \
-	src/render/render.cpp
+	src/render/render.cpp \
+	src/render/Camera.cpp
 OBJECTS=$(SOURCES:.cpp=.o)
 EXECUTABLE=EGGIN
 

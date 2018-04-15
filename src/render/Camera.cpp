@@ -1,5 +1,5 @@
 /*
-render.h - engine render
+Camera.cpp - render camera
 Copyright (C) 2018 Elektro-Volk
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -10,29 +10,19 @@ but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 */
-#pragma once
-#include "common.h"
 #include "Camera.h"
-#include "SDL2/SDL.h"
-#include "GL/gl.h"
-#include <GL/glu.h>
+#include "render.h"
 
-namespace render {
-  class Window {
-  public:
-    int width, height;
-    SDL_Window *sdlwin;
-    SDL_GLContext context;
+/*
+====================
+void Camera::frame();
+Setup camera position
+====================
+*/
+void Camera::frame()
+{
+  float rad = 57.2957;
 
-    Window (char *name, int w, int h);
-    ~Window();
-  };
-
-  extern Window *win;
-  extern Camera *cam;
-
-  void init();
-  void start();
-  void frame();
-  void drawFrame();
+  vec3 P, R = getGlobalPosition(), getGlobalRotation();
+	gluLookAt(P.x, P.y, P.z, P.x - sin(R.y / rad), P.y + tan(R.x / rad), P.z + cos(R.y / rad), 0, 1, 0);
 }
