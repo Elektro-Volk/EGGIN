@@ -13,8 +13,8 @@ GNU General Public License for more details.
 #include "input.h"
 #include "SDL2/SDL_keyboard.h"
 #include "SDL2/SDL_mouse.h"
-//#include "imgui/imgui.h"
-//#include "render/render.h"
+#include "render/imgui/imgui.h"
+#include "render/render.h"
 //#include <windows.h>
 #include <iostream>
 
@@ -44,10 +44,10 @@ void input::frame()
 
 	if (lockCursor) {
 		////ImVec2 p = ImGui::GetWindowPos();
-		//curX = render::width / 2;
-		//curY = render::height / 2;
+		curX = render::win->width / 2;
+		curY = render::win->height / 2;
 		////glutWarpPointer(curX, curY);
-		//SDL_WarpMouseInWindow(render::window, curX, curY);
+		SDL_WarpMouseInWindow(render::win->sdlwin, curX, curY);
 
 		//SetCursorPos(curX,curY); // Windows
 	}
