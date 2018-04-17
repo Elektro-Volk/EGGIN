@@ -19,6 +19,7 @@ GNU General Public License for more details.
 #include "SDL2/SDL.h"
 
 const string _version = "0.0.1";
+float delta = 0.f;
 
 /*
 ====================
@@ -56,8 +57,10 @@ bool frame();
 Engine frame
 ====================
 */
+long dt; // Delta
 bool frame(void)
 {
+  dt = clock();
   // SDL_Window frame
   SDL_Event event;
 	while (SDL_PollEvent(&event)) {
@@ -82,4 +85,5 @@ Draw engine frame
 void postFrame(void)
 {
   render::drawFrame();
+  delta = (clock() - dt) / 1000.f;
 }
