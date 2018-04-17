@@ -10,11 +10,15 @@ but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 */
+#define GL_GLEXT_PROTOTYPES
+#include <GL/gl.h>
+#include <GL/glext.h>
 #include "render.h"
 #include "console.h"
+#include "draw.h"
 #include "imgui/imgui.h"
 #include "imgui/togl.h"
-
+#include <SDL2/SDL_image.h>
 
 render::Window *render::win;
 Camera *render::cam;
@@ -76,6 +80,8 @@ void render::frame()
   glLoadIdentity();
   if (cam) cam->frame();
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+  draw::flush();
 }
 
 /*
@@ -92,7 +98,6 @@ void render::drawFrame()
   SDL_GL_SwapWindow(win->sdlwin);
 }
 
-/******** render::Window **********/
 /*
 ====================
 Window::Window (char *name, int w, int h);
@@ -104,4 +109,34 @@ render::Window::Window (char *name, int w, int h)
   width = w; height = h;
   sdlwin = SDL_CreateWindow("EGGIN", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, SDL_WINDOW_OPENGL|SDL_WINDOW_RESIZABLE);
   context = SDL_GL_CreateContext(sdlwin);
+}
+
+/*
+====================
+int render::loadTexture(char* name, bool minmap, texparam* params, short int pcount);
+Load texture from name
+====================
+*/
+int render::loadTexture(string name, bool mipmap, std::vector<texparam> params)
+{
+  console::log("Loading " + name + "...");
+  SDL_Surface* surf = IMG_Load(("./textures/" + name).c_str());
+
+	GLuint format = surf->format->Rmask == 0x000000ff ? GL_RGBA : GL_BGRA;
+	GLuint tid;
+	glGenTextures(1, &tid);
+
+	glBindTexture(GL_TEXTURE_2D, tid);
+	glTexImage2D(GL_TEXTURE_2D, 0, surf->format->BytesPerPixel, surf->w, surf->h, 0, format, GL_UNSIGNED_BYTE, surf->pixels);
+  SDL_FreeSurface(surf);
+
+  // Default
+  //glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+  //glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+
+  for (int i = 0; i < params.size(); i++)
+    glTexParameteri(GL_TEXTURE_2D, params[i].param, params[i].value);
+  if (mipmap) glGenerateMipmap(GL_TEXTURE_2D);
+
+  return tid;
 }

@@ -16,6 +16,7 @@ GNU General Public License for more details.
 #include "SDL2/SDL.h"
 #include "GL/gl.h"
 #include <GL/glu.h>
+#include <vector>
 
 namespace render {
   class Window {
@@ -35,4 +36,6 @@ namespace render {
   void start();
   void frame();
   void drawFrame();
+  struct texparam { GLenum param; GLenum value; };
+  int loadTexture(string name, bool mipmap, std::vector<texparam> params);
 }
