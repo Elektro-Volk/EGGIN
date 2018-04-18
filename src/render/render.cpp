@@ -93,7 +93,6 @@ Draw frame
 void render::drawFrame()
 {
   glViewport(0, 0, (int)ImGui::GetIO().DisplaySize.x, (int)ImGui::GetIO().DisplaySize.y);
-  //glClear(GL_COLOR_BUFFER_BIT);
   ImGui::Render();
   SDL_GL_SwapWindow(win->sdlwin);
 }
@@ -109,6 +108,8 @@ render::Window::Window (char *name, int w, int h)
   width = w; height = h;
   sdlwin = SDL_CreateWindow("EGGIN", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, SDL_WINDOW_OPENGL|SDL_WINDOW_RESIZABLE);
   context = SDL_GL_CreateContext(sdlwin);
+
+  glEnable(GL_MULTISAMPLE);
 }
 
 /*
