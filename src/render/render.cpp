@@ -14,6 +14,7 @@ GNU General Public License for more details.
 #include <GL/gl.h>
 #include <GL/glext.h>
 #include "render.h"
+#include "frustum.h"
 #include "console.h"
 #include "draw.h"
 #include "imgui/imgui.h"
@@ -82,6 +83,8 @@ void render::frame()
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
   draw::flush();
+
+  frustum::extract();
 }
 
 /*

@@ -11,6 +11,7 @@ SOURCES=	\
 	src/render/imgui/imgui.cpp \
 	src/render/imgui/imgui_draw.cpp \
 	src/render/imgui/togl.cpp \
+	src/render/frustum.cpp \
 	src/scenes.cpp \
 	src/input.cpp
 OBJECTS=$(SOURCES:.cpp=.o)

@@ -61,6 +61,7 @@ Engine frame
 long dt; // Delta
 bool frame(void)
 {
+  delta = (float)(clock() - dt) / CLOCKS_PER_SEC;
   dt = clock();
   // SDL_Window frame
   SDL_Event event;
