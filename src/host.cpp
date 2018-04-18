@@ -17,8 +17,9 @@ GNU General Public License for more details.
 #include "scenes.h"
 #include "input.h"
 #include "SDL2/SDL.h"
+#include <ctime>
 
-const string _version = "0.0.1";
+const string _version = "0.0.2";
 float delta = 0.f;
 
 /*
@@ -85,5 +86,4 @@ Draw engine frame
 void postFrame(void)
 {
   render::drawFrame();
-  delta = (clock() - dt) / 1000.f;
 }

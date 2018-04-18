@@ -80,6 +80,7 @@ void draw::flush()
   ImGui::Begin("Render debug", &render_debug);
   ImGui::Text("Vertices: %d", nVerts);
   ImGui::Text("DrawCalls: %d", drawCalls);
-  ImGui::Text("FPS: %f", 1000.f / delta);
+  ImGui::Text("Delta: %f", delta);
+  ImGui::Text("FPS: %f", 1.f / delta);
   ImGui::End();
 }
