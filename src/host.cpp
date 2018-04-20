@@ -17,6 +17,7 @@ GNU General Public License for more details.
 #include "scenes.h"
 #include "input.h"
 #include "SDL2/SDL.h"
+#include "net/net.h"
 #include <ctime>
 
 const string _version = "0.0.2";
@@ -72,6 +73,7 @@ bool frame(void)
 		}
 	}
 
+  net::frame();
 	input::frame();
 	render::frame();
   scenesFrame();

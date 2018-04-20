@@ -13,6 +13,8 @@ SOURCES=	\
 	src/render/imgui/togl.cpp \
 	src/render/frustum.cpp \
 	src/scenes.cpp \
+	src/net/socket.cpp \
+	src/net/net.cpp \
 	src/input.cpp
 OBJECTS=$(SOURCES:.cpp=.o)
 EXECUTABLE=EGGIN
