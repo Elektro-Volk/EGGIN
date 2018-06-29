@@ -1,2 +1,0 @@
-/usr/bin/ar qc libEGGIN.a  CMakeFiles/EGGIN.dir/src/core/EGGIN.cpp.o CMakeFiles/EGGIN.dir/src/systems/Render/ERender.cpp.o CMakeFiles/EGGIN.dir/src/systems/Render/ERenderMesh.cpp.o
-/usr/bin/ranlib libEGGIN.a

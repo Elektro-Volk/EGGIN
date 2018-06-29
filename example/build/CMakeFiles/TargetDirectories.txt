@@ -1,3 +1,0 @@
-/home/evolk/Projects/EGGIN/example/build/CMakeFiles/rebuild_cache.dir
-/home/evolk/Projects/EGGIN/example/build/CMakeFiles/HelloWorld.dir
-/home/evolk/Projects/EGGIN/example/build/CMakeFiles/edit_cache.dir

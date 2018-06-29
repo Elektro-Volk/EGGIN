@@ -1,1 +1,0 @@
-/usr/bin/c++    -rdynamic CMakeFiles/HelloWorld.dir/main.cpp.o  -o HelloWorld  -L/home/evolk/Projects/EGGIN/example/../build  -L/home/evolk/Projects/EGGIN/example/../tparty/irrlicht/lib/Linux -Wl,-rpath,/home/evolk/Projects/EGGIN/example/../build:/home/evolk/Projects/EGGIN/example/../tparty/irrlicht/lib/Linux -lEGGIN -lSM -lICE -lX11 -lXext -lIrrlicht -lGL -lX11 -lXxf86vm 
