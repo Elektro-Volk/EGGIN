@@ -7,14 +7,24 @@
 //
 
 #pragma once
+#include <string>
+#include <map>
 
-#include <stdio.h>
-
-class CvarSystem {
+class Cvar {
 private:
+    std::string name;
+    std::string desc;
+    std::string value;
 public:
-    CvarSystem();
-    ~CvarSystem();
-protected:
-
+    Cvar(std::string name, std::string desc, std::string def);
+    void setValue(std::string new_value);
+    std::string getString();
+    int getInt();
+    float getFloat();
+    bool getBool();
+    ~Cvar();
 };
+
+typedef Cvar* cvar;
+
+extern std::map<std::string, cvar> e_cvars;
