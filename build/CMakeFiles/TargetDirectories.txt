@@ -1,0 +1,3 @@
+/home/evolk/Projects/EGGIN/build/CMakeFiles/rebuild_cache.dir
+/home/evolk/Projects/EGGIN/build/CMakeFiles/EGGIN.dir
+/home/evolk/Projects/EGGIN/build/CMakeFiles/edit_cache.dir
