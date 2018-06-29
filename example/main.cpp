@@ -6,7 +6,7 @@ int main()
 {
     EGGIN::initEngine();
 
-    new ERenderMesh();
+    auto mesh = new ERenderMesh();
 
     while (EGGIN::isWork) { EGGIN::frame(); }
     return 0;

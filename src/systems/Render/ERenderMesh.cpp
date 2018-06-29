@@ -11,7 +11,8 @@
 ERenderMesh::ERenderMesh()
 {
     node = e_render->getSceneManager()->addCubeSceneNode();
-    setMaterialFlag(ERenderFlags::Material::LIGHTING, false);
+    //e_render->getSceneManager()->setAmbientLight(irr::video::SColorf(0.6f, 0.6f, 0.6f, 0.1f));
+    //setMaterialFlag(ERenderFlags::Material::LIGHTING, false);
     //wall->setMaterialTexture(0, driver->getTexture("../../media/wall.jpg"));
 }
 
