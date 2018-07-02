@@ -3,4 +3,5 @@ set( S_CORE
     ${CORE_PATH}/EGGIN.cpp
     ${CORE_PATH}/EConsole.cpp
     ${CORE_PATH}/ECvarSystem.cpp
+    ${CORE_PATH}/ECmd.cpp
 )
